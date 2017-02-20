@@ -43,9 +43,8 @@ from ml import plotData, plotDecisionBoundary
 #  contains the label.
 
 data = np.loadtxt('ex2data1.txt', delimiter=',')
-X = data[:, 0:2]
+X = data[:, 0:2]    
 y = data[:, 2]
-
 # ==================== Part 1: Plotting ====================
 
 print 'Plotting data with + indicating (y = 1) examples and o indicating (y = 0) examples.'
@@ -68,7 +67,8 @@ X = np.concatenate((np.ones((m, 1)), X), axis=1)
 
 # Initialize fitting parameters
 initial_theta = np.zeros(n + 1)
-
+print initial_theta.shape[0]
+#print np.dot(X[0],np.transpose(initial_theta))
 # Compute and display initial cost and gradient
 cost = costFunction(initial_theta, X, y)
 print 'Cost at initial theta (zeros): %f' % cost
@@ -80,7 +80,7 @@ raw_input("Program paused. Press Enter to continue...")
 
 # ============= Part 3: Optimizing using scipy  =============
 res = minimize(costFunction, initial_theta, method='TNC',
-               jac=False, args=(X, y), options={'gtol': 1e-3, 'disp': True, 'maxiter': 1000})
+               jac=False, args=(X, y), options={'gtol': 1e-3, 'disp': True, 'maxiter': 400})
 
 theta = res.x
 cost = res.fun

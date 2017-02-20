@@ -1,5 +1,5 @@
 from costFunction import costFunction
-
+import numpy as np
 
 def costFunctionReg(theta, X, y, Lambda):
     """
@@ -10,6 +10,7 @@ def costFunctionReg(theta, X, y, Lambda):
     """
     # Initialize some useful values
     m = len(y)   # number of training examples
+     #the sum
 
 # ====================== YOUR CODE HERE ======================
 # Instructions: Compute the cost of a particular choice of theta.
