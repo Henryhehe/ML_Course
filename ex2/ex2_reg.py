@@ -16,10 +16,9 @@ from sigmoid import sigmoid
 
 
 def optimize(Lambda):
-
     result = minimize(costFunctionReg, initial_theta, method='L-BFGS-B',
-               jac=gradientFunctionReg, args=(X.as_matrix(), y, Lambda),
-               options={'gtol': 1e-4, 'disp': False, 'maxiter': 1000})
+               jac=gradientFunctionReg, args=(X, y, Lambda),
+               options={'gtol': 1e-4, 'disp': False, 'maxiter': 500})
 
     return result
 
@@ -52,7 +51,7 @@ plotData(X.values, y.values)
 plt.xlabel('Microchip Test 1')
 plt.ylabel('Microchip Test 2')
 show()
-raw_input("Program paused. Press Enter to continue...")
+#raw_input("Program paused. Press Enter to continue...")
 
 
 # =========== Part 1: Regularized Logistic Regression ============
@@ -75,11 +74,11 @@ cost = costFunctionReg(initial_theta, X, y, Lambda)
 
 print 'Cost at initial theta (zeros): %f' % cost
 
-# ============= Part 2: Regularization and Accuracies =============
+## ============= Part 2: Regularization and Accuracies =============
 
 # Optimize and plot boundary
 
-Lambda = 1.0
+Lambda = 1
 result = optimize(Lambda)
 theta = result.x
 cost = result.fun
@@ -99,10 +98,10 @@ acc = np.mean(np.where(p == y.T,1,0)) * 100
 print 'Train Accuracy: %f' % acc
 
 raw_input("Program paused. Press Enter to continue...")
-
-# ============= Part 3: Optional Exercises =============
-
-
+#
+## ============= Part 3: Optional Exercises =============
+#
+#
 for Lambda in np.arange(0.0,10.1,1.0):
     result = optimize(Lambda)
     theta = result.x

@@ -19,8 +19,5 @@ def costFunction(theta, X,y):
 # Note: grad should have the same dimensions as theta
     for i in range(m):
         sum_1 += -y[i] * log(sigmoid(np.dot(X[i],theta))) - (1-y[i])* log(1- sigmoid(np.dot(X[i],theta)))
-        
-        
-        
     J = sum_1/m
     return J

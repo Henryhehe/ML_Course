@@ -14,6 +14,7 @@ def gradientFunction(theta, X, y):
     grad = np.zeros(theta.shape[0])
     theta = np.transpose(theta)
     sum_1 = 0
+    
 
 # ====================== YOUR CODE HERE ======================
 # Instructions: Compute the gradient of a particular choice of theta.
